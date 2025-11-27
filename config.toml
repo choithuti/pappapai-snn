@@ -1,0 +1,24 @@
+# config.toml – GENESIS NODE CHÍNH THỨC
+seed_node = true
+node_id = "choithuti_GENESIS_001"
+public_ip = "72.61.126.190"
+port = 36331
+high_neuron_mode = true
+
+# P2P Settings
+listen_addr = "0.0.0.0:36331"
+bootstrap_nodes = []
+enable_mdns = true
+enable_kad = true
+
+# Chain Settings
+block_time = 8
+genesis_hash = "genesis-hash-pappap-2025"
+
+# SNN Settings
+neuron_base_count = 8000
+power_multiplier = 8.0
+
+# Security
+enable_ethics_filter = true
+vietnam_law_compliance = true
