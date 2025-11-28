@@ -1,6 +1,6 @@
-// src/block.rs
 use crate::transaction::Transaction;
 use serde::{Deserialize, Serialize};
+use sha2::{Sha256, Digest};
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Block {
@@ -8,8 +8,8 @@ pub struct Block {
     pub previous_hash: String,
     pub timestamp: u64,
     pub transactions: Vec<Transaction>,
-    pub spike_score: f32,      // Điểm SNN vote
-    pub validator: String,     // Peer ID đã vote
+    pub spike_score: f32,
+    pub validator: String,
     pub hash: String,
 }
 
@@ -35,7 +35,7 @@ impl Block {
 
     pub fn calculate_hash(&self) -> String {
         let data = serde_json::to_string(self).unwrap();
-        let mut hasher = sha2::Sha256::new();
+        let mut hasher = Sha256::new();
         hasher.update(data.as_bytes());
         hex::encode(hasher.finalize())
     }
